@@ -1,9 +1,4 @@
-//
-//  RootSwitcher.swift
-//  dandi
-//
-//  Created by 김윤서 on 2022/12/29.
-//
+
 
 import UIKit
 
@@ -13,20 +8,19 @@ final class RootSwitcher {
         case main
         case custom(UIViewController)
     }
-
+    
     static func update(_ destination: Destination) {
         
         let tabBarController = UITabBarController()
         let tabBar = tabBarController.tabBar
         tabBar.backgroundColor = .ohsogo_Gray
-        tabBar.tintColor = .ohsogo_Blue
+        tabBar.tintColor = .systemCyan
         
         let firstViewController = SearchViewController()
         let firstNavigationController = UINavigationController(rootViewController: firstViewController)
 
-        let secondViewController = PreviousViewController()
+        let secondViewController = ChatViewController()
         let secondNavigationController = UINavigationController(rootViewController: secondViewController)
-
 
         let firstTabBarItem = UITabBarItem(title: "새로운 문의", image: UIImage(systemName: "magnifyingglass"), selectedImage: nil)
         firstNavigationController.tabBarItem = firstTabBarItem

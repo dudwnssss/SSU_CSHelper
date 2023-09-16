@@ -130,6 +130,13 @@ class SearchViewController: BaseViewController{
         
     }
     
+    func logoutAlert(){
+        let alert = UIAlertController(title: "로그아웃 하시겠습니까?", message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let confirm = UIAlertAction(title: "로그아웃", style: .destructive)
+        present(alert, animated: true)
+    }
+    
     func search(){
         let provider = MoyaProvider<SearchService>(plugins: [NetworkLogPlugin()])
         provider.request(.search(searchTextView.text)){ result in

@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-
         window?.makeKeyAndVisible()
-
+//        let nav = UINavigationController(rootViewController: ChatViewController())
+//        window?.rootViewController = nav
         if UserDefaultHandler.shared.accessToken.isEmpty {
             RootSwitcher.update(.login)
             return

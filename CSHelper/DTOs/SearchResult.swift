@@ -11,7 +11,8 @@ import Foundation
 // MARK: - Welcome
 struct SearchResult: Decodable {
     let id: Int
-    let answer, question: String
+    let answer: String
+    let question: String
     let accuracy: Double
     let createdAt: String
 }

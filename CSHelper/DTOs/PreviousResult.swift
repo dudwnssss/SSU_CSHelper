@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - WelcomeElement
 struct Previous: Codable {
     let id: Int
     let answer, question: String

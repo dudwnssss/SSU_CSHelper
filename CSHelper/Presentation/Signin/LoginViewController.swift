@@ -28,9 +28,11 @@ class LoginViewController: BaseViewController{
         
     }
     let emailTextFeild = UITextField().then{
+        $0.borderStyle = .roundedRect
         $0.placeholder = "이메일을 입력해주세요"
     }
     let passwordTextFeild = UITextField().then{
+        $0.borderStyle = .roundedRect
         $0.placeholder = "비밀번호를 입력해주세요"
     }
     
@@ -49,7 +51,7 @@ class LoginViewController: BaseViewController{
             $0.top.equalToSuperview().offset(200)
         }
         emailTextFeild.snp.makeConstraints {
-            $0.leading.equalTo(emailLabel.snp.leading)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.top.equalTo(emailLabel.snp.bottom).offset(10)
         }
         
@@ -59,7 +61,7 @@ class LoginViewController: BaseViewController{
         }
         
         passwordTextFeild.snp.makeConstraints {
-            $0.leading.equalTo(pwLabel.snp.leading)
+            $0.horizontalEdges.equalToSuperview().inset(20 )
             $0.top.equalTo(pwLabel.snp.bottom).offset(10)
         }
         

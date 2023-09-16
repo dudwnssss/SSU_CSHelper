@@ -12,7 +12,7 @@ protocol BaseTargetType: TargetType {}
 
 extension BaseTargetType {
     var baseURL: URL {
-        return URL(string: "http://ec2-15-164-148-20.ap-northeast-2.compute.amazonaws.com")!
+        return URL(string: "http://ec2-43-201-90-131.ap-northeast-2.compute.amazonaws.com:8080")!
     }
 
     var headers: [String: String]? {
