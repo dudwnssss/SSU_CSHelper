@@ -16,10 +16,10 @@ final class RootSwitcher {
         tabBar.backgroundColor = .ohsogo_Gray
         tabBar.tintColor = .systemCyan
         
-        let firstViewController = SearchViewController()
+        let firstViewController = ChatViewController()
         let firstNavigationController = UINavigationController(rootViewController: firstViewController)
 
-        let secondViewController = ChatViewController()
+        let secondViewController = ProfileViewController()
         let secondNavigationController = UINavigationController(rootViewController: secondViewController)
 
         let firstTabBarItem = UITabBarItem(title: "새로운 문의", image: UIImage(systemName: "magnifyingglass"), selectedImage: nil)

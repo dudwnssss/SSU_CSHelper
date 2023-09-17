@@ -23,7 +23,6 @@ class ChatViewController: BaseViewController {
     override func setProperties() {
         navigationItem.title = "송현섭님의 문의내역"
         chatView.searchBar.delegate = self
-        navigationController?.navigationBar.backgroundColor = .systemCyan
         view.keyboardLayoutGuide.followsUndockedKeyboard = true
         setDataSource()
         setSnapshot()
@@ -60,12 +59,19 @@ extension ChatViewController: UISearchBarDelegate{
         snapshot.appendItems(chatViewModel.chattingList)
         dataSource.apply(snapshot)
         
+        chatView.loadingView.isHidden = false
+        chatView.loadingView.indicator.startAnimating()
+        
         SearchManager.shared.search(query: text) { [self] value in
+            chatView.loadingView.indicator.stopAnimating()
+            chatView.loadingView.isHidden = true
             let answer = Chat(chat: value.answer, isAnswer: true)
             self.chatViewModel.chattingList.append(answer)
             snapshot.appendItems(self.chatViewModel.chattingList)
             dataSource.apply(snapshot)
         }
+        
+        searchBar.text = ""
         
         print(chatViewModel.chattingList)
         searchBar.endEditing(true)

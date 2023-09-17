@@ -22,6 +22,11 @@ class ChatView: BaseView {
             $0.keyboardDismissMode = .onDrag
             $0.showsVerticalScrollIndicator = false
         }
+        
+        loadingView.do {
+            $0.isHidden = true
+        }
+
     }
     
     private func createLayout() -> UICollectionViewLayout{
@@ -55,8 +60,7 @@ class ChatView: BaseView {
             $0.bottom.equalTo(searchBar.snp.top)
         }
         loadingView.snp.makeConstraints {
-            $0.size.equalTo(500)
-            $0.center.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     

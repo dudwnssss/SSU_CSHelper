@@ -8,5 +8,6 @@
 import Foundation
 
 class ChatViewModel{
-    var chattingList : [Chat] = [Chat(chat: "바보fwufkajfjawefuhfuiahuifhawfaiuwbfuibeawfbkabkfbuiwefgbuiawbfalkwbfawiufgbuiabfbaewkjbfiuawbfiuabwfbkalwbfaiuefbiaufulkawfuiawbifubw", isAnswer: false), Chat(chat: "멍청이", isAnswer: true)]
+    var chattingList : [Chat] = []
 }
+

@@ -28,7 +28,7 @@ class SearchViewController: BaseViewController{
     
     let logoutButton = UIButton().then{
         $0.setImage(UIImage(systemName: "door.left.hand.open"), for: .normal)
-        $0.tintColor = .black
+        $0.tintColor = .white
     }
 
     let questionTextView = UITextView().then{
@@ -161,15 +161,3 @@ class SearchViewController: BaseViewController{
     
 }
 
-#if DEBUG
-import SwiftUI
-import Moya
-
-struct SearchViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewController = SearchViewController()
-        return viewController.getPreview()
-    }
-}
-
-#endif

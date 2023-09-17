@@ -13,7 +13,11 @@ class LoadingView: BaseView{
     let indicator = UIActivityIndicatorView()
     
     override func setProperties() {
-        backgroundColor = .black.withAlphaComponent(0.5)
+        backgroundColor = .black.withAlphaComponent(0.8)
+        indicator.do {
+            $0.color = .white
+        }
+
         loadingLabel.do {
             $0.textColor = .white
             $0.text = "문의내용을 분석중입니다.\n잠시만 기다려주세요"

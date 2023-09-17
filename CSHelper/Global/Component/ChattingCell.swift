@@ -43,7 +43,9 @@ class ChattingCell: UICollectionViewCell{
     
     func setProperties(){
         textView.do {
+            $0.isEditable = false
             $0.font = .boldSystemFont(ofSize: 16)
+            $0.isScrollEnabled = false
             $0.textColor = .white
             $0.layer.cornerRadius = 10
             $0.backgroundColor = chatType?.bgColor
@@ -57,6 +59,11 @@ class ChattingCell: UICollectionViewCell{
         textView.snp.makeConstraints {
             $0.height.equalTo(textView.text.getEstimatedFrame(with: .boldSystemFont(ofSize: 16)).height+20)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        textView.text = nil
     }
     
     @available(*, unavailable)
