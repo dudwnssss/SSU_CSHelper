@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.and.text.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6tK-Hb-Pz9">
-                                <rect key="frame" x="261" y="410.33333333333331" width="50" height="57"/>
+                                <rect key="frame" x="261" y="406.33333333333331" width="50" height="57"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58.329999999999998" id="L7j-NC-g0B"/>
@@ -35,7 +35,7 @@
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
                             <constraint firstItem="F7A-6Q-aOF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="GEX-Ru-LpY"/>
-                            <constraint firstItem="6tK-Hb-Pz9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="T60-FD-mEZ"/>
+                            <constraint firstItem="6tK-Hb-Pz9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-4" id="T60-FD-mEZ"/>
                             <constraint firstItem="6tK-Hb-Pz9" firstAttribute="leading" secondItem="F7A-6Q-aOF" secondAttribute="trailing" constant="8" symbolic="YES" id="nIG-bS-ACO"/>
                             <constraint firstItem="F7A-6Q-aOF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xLU-QL-hbt"/>
                         </constraints>

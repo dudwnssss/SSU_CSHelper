@@ -55,7 +55,8 @@ class ChattingCell: UICollectionViewCell{
     
     func configureCell(chat: Chat){
         textView.text = chat.chat
-        textView.backgroundColor = chat.isAnswer ? .systemCyan : .lightGray
+        textView.backgroundColor = chat.isAnswer ? .systemCyan : .systemGray5
+        textView.textColor = chat.isAnswer ? .white : .black
         textView.snp.makeConstraints {
             $0.height.equalTo(textView.text.getEstimatedFrame(with: .boldSystemFont(ofSize: 16)).height+20)
         }

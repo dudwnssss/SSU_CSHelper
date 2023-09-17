@@ -50,8 +50,6 @@
 		10B671412AB5ADC800FD0E71 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B671402AB5ADC800FD0E71 /* ProfileViewModel.swift */; };
 		10B671432AB5AF5100FD0E71 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B671422AB5AF5100FD0E71 /* Profile.swift */; };
 		10B6714A2AB6E54A00FD0E71 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B671492AB6E54A00FD0E71 /* ProfileHeader.swift */; };
-		10B6714C2AB71C1400FD0E71 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6714B2AB71C1400FD0E71 /* UICollectionView+.swift */; };
-		10B6714E2AB71C8200FD0E71 /* NewChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6714D2AB71C8200FD0E71 /* NewChatCell.swift */; };
 		10B8BE3E2A3DEE550008A55F /* PreviousService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B8BE3D2A3DEE550008A55F /* PreviousService.swift */; };
 		10B8BE402A3EC1640008A55F /* PreviousResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B8BE3F2A3EC1640008A55F /* PreviousResult.swift */; };
 		10B8BE422A3F35910008A55F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B8BE412A3F35910008A55F /* UIColor+.swift */; };
@@ -102,8 +100,6 @@
 		10B671402AB5ADC800FD0E71 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		10B671422AB5AF5100FD0E71 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		10B671492AB6E54A00FD0E71 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
-		10B6714B2AB71C1400FD0E71 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
-		10B6714D2AB71C8200FD0E71 /* NewChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatCell.swift; sourceTree = "<group>"; };
 		10B8BE3D2A3DEE550008A55F /* PreviousService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousService.swift; sourceTree = "<group>"; };
 		10B8BE3F2A3EC1640008A55F /* PreviousResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousResult.swift; sourceTree = "<group>"; };
 		10B8BE412A3F35910008A55F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -171,6 +167,7 @@
 		104319452A3C319A003AAC49 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				10B6714F2AB72A9300FD0E71 /* New Group */,
 				10B671372AB59DD100FD0E71 /* Profile */,
 				109B91142AA73CDB009958F1 /* Chat */,
 				109B91132AA73BD2009958F1 /* Search */,
@@ -281,7 +278,6 @@
 				10B671322AB5926B00FD0E71 /* LoadingView.swift */,
 				10B6713A2AB59E2500FD0E71 /* ProfileCell.swift */,
 				10B671492AB6E54A00FD0E71 /* ProfileHeader.swift */,
-				10B6714D2AB71C8200FD0E71 /* NewChatCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -307,6 +303,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		10B6714F2AB72A9300FD0E71 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		10C78DB12A3C3565000C5401 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,7 +330,6 @@
 				10DA5C4E2A3C43D00032DC4A /* UIVIew+.swift */,
 				10B8BE412A3F35910008A55F /* UIColor+.swift */,
 				109B91242AA766DD009958F1 /* String+.swift */,
-				10B6714B2AB71C1400FD0E71 /* UICollectionView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -419,7 +421,6 @@
 			files = (
 				109B911F2AA760B8009958F1 /* ReusableView.swift in Sources */,
 				10B671312AB58F4B00FD0E71 /* SearchManager.swift in Sources */,
-				10B6714C2AB71C1400FD0E71 /* UICollectionView+.swift in Sources */,
 				109B91212AA760CE009958F1 /* UICollection+ReusableView.swift in Sources */,
 				10DA5C4F2A3C43D00032DC4A /* UIVIew+.swift in Sources */,
 				1043194D2A3C31E5003AAC49 /* PrevisouViewController.swift in Sources */,
@@ -461,7 +462,6 @@
 				10B8BE402A3EC1640008A55F /* PreviousResult.swift in Sources */,
 				1084CDD92A3DDA4600CAF78D /* Token.swift in Sources */,
 				1084CDD72A3D978100CAF78D /* AuthService.swift in Sources */,
-				10B6714E2AB71C8200FD0E71 /* NewChatCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
