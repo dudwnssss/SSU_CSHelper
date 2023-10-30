@@ -50,6 +50,7 @@ class HistoryCell: UICollectionViewCell{
         }
         dateLabel.do {
             $0.text = "10월 8일"
+            $0.textAlignment = .right
             $0.textColor = .lightGray
             $0.font = .systemFont(ofSize: 14)
         }
@@ -73,10 +74,12 @@ class HistoryCell: UICollectionViewCell{
         summaryLabel.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom).offset(5)
             $0.leading.equalTo(nameLabel)
+            $0.trailing.lessThanOrEqualTo(dateLabel.snp.leading)
         }
         dateLabel.snp.makeConstraints {
             $0.trailing.equalTo(stateLabel)
             $0.centerY.equalTo(summaryLabel)
+            $0.width.equalTo(60)
         }
     }
     

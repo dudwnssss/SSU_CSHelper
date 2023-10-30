@@ -99,11 +99,11 @@ extension ProfileViewController {
             header.newChatDidTap  = { [weak self] in
                 let alert = UIAlertController(title: "고객정보를 입력하세요", message: nil, preferredStyle: .alert)
                 alert.addTextField {
-                    $0.placeholder = "이름"
+                    $0.placeholder = "이름을 입력해주세요"
                     $0.borderStyle = .roundedRect
                 }
                 alert.addTextField {
-                    $0.placeholder = "학번"
+                    $0.placeholder = "학번을 입력해주세요"
                     $0.borderStyle = .roundedRect
                 }
                 let cancel = UIAlertAction(title: "취소", style: .cancel)

@@ -18,7 +18,7 @@ final class ProfileHeader: UICollectionReusableView {
         $0.text = "4"
         $0.font = .boldSystemFont(ofSize: 15)
         $0.textColor = .gray
-    }
+    } 
     
     let newChatButton = UIButton()
     

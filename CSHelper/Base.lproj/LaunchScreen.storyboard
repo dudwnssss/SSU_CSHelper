@@ -30,20 +30,36 @@
                                     <constraint firstAttribute="width" constant="50" id="tD5-c6-x5y"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고객응대 업무 반자동화 서비스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rer-0W-PGH">
+                                <rect key="frame" x="100.33333333333333" y="738.66666666666663" width="192.66666666666669" height="19.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2023. FMSMT all rights reserved " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-hV-kPo">
+                                <rect key="frame" x="47.333333333333343" y="763" width="298.66666666666663" height="18"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
+                            <constraint firstItem="rer-0W-PGH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8fF-xE-Zci"/>
                             <constraint firstItem="F7A-6Q-aOF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="GEX-Ru-LpY"/>
+                            <constraint firstItem="3LI-hV-kPo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GGt-P9-SYO"/>
                             <constraint firstItem="6tK-Hb-Pz9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-4" id="T60-FD-mEZ"/>
                             <constraint firstItem="6tK-Hb-Pz9" firstAttribute="leading" secondItem="F7A-6Q-aOF" secondAttribute="trailing" constant="8" symbolic="YES" id="nIG-bS-ACO"/>
+                            <constraint firstItem="3LI-hV-kPo" firstAttribute="top" secondItem="rer-0W-PGH" secondAttribute="bottom" constant="5" id="qDt-KT-O3g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rer-0W-PGH" secondAttribute="bottom" constant="60" id="qFd-o8-EPO"/>
                             <constraint firstItem="F7A-6Q-aOF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xLU-QL-hbt"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+            <point key="canvasLocation" x="-146" y="354"/>
         </scene>
     </scenes>
     <resources>
