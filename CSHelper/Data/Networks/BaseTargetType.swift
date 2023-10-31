@@ -21,7 +21,6 @@ extension BaseTargetType {
             "Authorization": "Bearer \(UserDefaultHandler.shared.accessToken)"
         ]
     }
-
     var sampleData: Data {
         return Data()
     }

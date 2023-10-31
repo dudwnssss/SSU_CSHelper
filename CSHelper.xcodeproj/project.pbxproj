@@ -39,6 +39,13 @@
 		109B91212AA760CE009958F1 /* UICollection+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B91202AA760CE009958F1 /* UICollection+ReusableView.swift */; };
 		109B91232AA760DB009958F1 /* UITableView+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B91222AA760DB009958F1 /* UITableView+Reuseable.swift */; };
 		109B91252AA766DD009958F1 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B91242AA766DD009958F1 /* String+.swift */; };
+		10ADB67F2AF0E663001A56F4 /* AdviceSerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB67E2AF0E663001A56F4 /* AdviceSerice.swift */; };
+		10ADB6822AF0E6F3001A56F4 /* AdviceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB6812AF0E6F3001A56F4 /* AdviceStatus.swift */; };
+		10ADB6842AF0E87D001A56F4 /* AdviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB6832AF0E87D001A56F4 /* AdviceResponse.swift */; };
+		10ADB6862AF0ED2B001A56F4 /* AdviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB6852AF0ED2B001A56F4 /* AdviceRequest.swift */; };
+		10ADB6892AF0F064001A56F4 /* ChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB6882AF0F064001A56F4 /* ChannelService.swift */; };
+		10ADB68C2AF0F1BA001A56F4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB68B2AF0F1BA001A56F4 /* ViewModel.swift */; };
+		10ADB68F2AF0FAF2001A56F4 /* ChannelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADB68E2AF0FAF2001A56F4 /* ChannelResponse.swift */; };
 		10B671312AB58F4B00FD0E71 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B671302AB58F4B00FD0E71 /* SearchManager.swift */; };
 		10B671332AB5926B00FD0E71 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B671322AB5926B00FD0E71 /* LoadingView.swift */; };
 		10B671362AB59DCF00FD0E71 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B671352AB59DCF00FD0E71 /* ProfileViewController.swift */; };
@@ -88,6 +95,13 @@
 		109B91202AA760CE009958F1 /* UICollection+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+ReusableView.swift"; sourceTree = "<group>"; };
 		109B91222AA760DB009958F1 /* UITableView+Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuseable.swift"; sourceTree = "<group>"; };
 		109B91242AA766DD009958F1 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		10ADB67E2AF0E663001A56F4 /* AdviceSerice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceSerice.swift; sourceTree = "<group>"; };
+		10ADB6812AF0E6F3001A56F4 /* AdviceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceStatus.swift; sourceTree = "<group>"; };
+		10ADB6832AF0E87D001A56F4 /* AdviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceResponse.swift; sourceTree = "<group>"; };
+		10ADB6852AF0ED2B001A56F4 /* AdviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceRequest.swift; sourceTree = "<group>"; };
+		10ADB6882AF0F064001A56F4 /* ChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelService.swift; sourceTree = "<group>"; };
+		10ADB68B2AF0F1BA001A56F4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		10ADB68E2AF0FAF2001A56F4 /* ChannelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelResponse.swift; sourceTree = "<group>"; };
 		10B671302AB58F4B00FD0E71 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		10B671322AB5926B00FD0E71 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		10B671352AB59DCF00FD0E71 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +198,8 @@
 		1084CDCA2A3D92E900CAF78D /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				10ADB68D2AF0FAE2001A56F4 /* Channel */,
+				10ADB6872AF0EF35001A56F4 /* Advice */,
 				1084CDD82A3DDA4600CAF78D /* Token.swift */,
 				1084CDDC2A3DE4AC00CAF78D /* SearchResult.swift */,
 				10B8BE3F2A3EC1640008A55F /* PreviousResult.swift */,
@@ -207,6 +223,8 @@
 				1084CDDA2A3DE19000CAF78D /* SearchService.swift */,
 				10B8BE3D2A3DEE550008A55F /* PreviousService.swift */,
 				10B671302AB58F4B00FD0E71 /* SearchManager.swift */,
+				10ADB67E2AF0E663001A56F4 /* AdviceSerice.swift */,
+				10ADB6882AF0F064001A56F4 /* ChannelService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +241,7 @@
 		109B91102AA73BAA009958F1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				10B671422AB5AF5100FD0E71 /* Profile.swift */,
 				107B33612A3C3DB6001CA4B1 /* BaseViewController.swift */,
 				109B91172AA73D05009958F1 /* BaseView.swift */,
 			);
@@ -249,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				1043194A2A3C31D3003AAC49 /* SearchViewController.swift */,
+				10B6713E2AB5ADB700FD0E71 /* History.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -280,6 +300,8 @@
 		109B911C2AA76075009958F1 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				10ADB68A2AF0F1A6001A56F4 /* Protocol */,
+				10ADB6802AF0E6E7001A56F4 /* Enum */,
 				10C78DB12A3C3565000C5401 /* Utils */,
 				10C78DB42A3C3999000C5401 /* Extensions */,
 				109B91192AA75961009958F1 /* Component */,
@@ -287,14 +309,45 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		10ADB6802AF0E6E7001A56F4 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				10ADB6812AF0E6F3001A56F4 /* AdviceStatus.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		10ADB6872AF0EF35001A56F4 /* Advice */ = {
+			isa = PBXGroup;
+			children = (
+				10ADB6852AF0ED2B001A56F4 /* AdviceRequest.swift */,
+				10ADB6832AF0E87D001A56F4 /* AdviceResponse.swift */,
+			);
+			path = Advice;
+			sourceTree = "<group>";
+		};
+		10ADB68A2AF0F1A6001A56F4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				10ADB68B2AF0F1BA001A56F4 /* ViewModel.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		10ADB68D2AF0FAE2001A56F4 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				10ADB68E2AF0FAF2001A56F4 /* ChannelResponse.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
 		10B671372AB59DD100FD0E71 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				10B671402AB5ADC800FD0E71 /* ProfileViewModel.swift */,
 				10B671352AB59DCF00FD0E71 /* ProfileViewController.swift */,
 				10B671382AB59DDC00FD0E71 /* ProfileView.swift */,
-				10B6713E2AB5ADB700FD0E71 /* History.swift */,
-				10B671402AB5ADC800FD0E71 /* ProfileViewModel.swift */,
-				10B671422AB5AF5100FD0E71 /* Profile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -419,8 +472,10 @@
 				109B911F2AA760B8009958F1 /* ReusableView.swift in Sources */,
 				10B671312AB58F4B00FD0E71 /* SearchManager.swift in Sources */,
 				109B91212AA760CE009958F1 /* UICollection+ReusableView.swift in Sources */,
+				10ADB6842AF0E87D001A56F4 /* AdviceResponse.swift in Sources */,
 				10DA5C4F2A3C43D00032DC4A /* UIVIew+.swift in Sources */,
 				1043194D2A3C31E5003AAC49 /* PrevisouViewController.swift in Sources */,
+				10ADB67F2AF0E663001A56F4 /* AdviceSerice.swift in Sources */,
 				1084CDD42A3D971600CAF78D /* UserDefault.swift in Sources */,
 				10B671362AB59DCF00FD0E71 /* ProfileViewController.swift in Sources */,
 				1043194B2A3C31D3003AAC49 /* SearchViewController.swift in Sources */,
@@ -434,7 +489,10 @@
 				107B33622A3C3DB6001CA4B1 /* BaseViewController.swift in Sources */,
 				10B671412AB5ADC800FD0E71 /* ProfileViewModel.swift in Sources */,
 				10B6713B2AB59E2500FD0E71 /* ProfileCell.swift in Sources */,
+				10ADB6892AF0F064001A56F4 /* ChannelService.swift in Sources */,
 				10B671332AB5926B00FD0E71 /* LoadingView.swift in Sources */,
+				10ADB68F2AF0FAF2001A56F4 /* ChannelResponse.swift in Sources */,
+				10ADB68C2AF0F1BA001A56F4 /* ViewModel.swift in Sources */,
 				109B91162AA73CEC009958F1 /* ChatViewController.swift in Sources */,
 				109B911B2AA75970009958F1 /* ChattingCell.swift in Sources */,
 				1084CDDD2A3DE4AC00CAF78D /* SearchResult.swift in Sources */,
@@ -452,6 +510,8 @@
 				10ED27482AB5660D00500762 /* ChatViewModel.swift in Sources */,
 				109B91232AA760DB009958F1 /* UITableView+Reuseable.swift in Sources */,
 				10B6713D2AB59E3100FD0E71 /* HIstoryCell.swift in Sources */,
+				10ADB6822AF0E6F3001A56F4 /* AdviceStatus.swift in Sources */,
+				10ADB6862AF0ED2B001A56F4 /* AdviceRequest.swift in Sources */,
 				10B6713F2AB5ADB700FD0E71 /* History.swift in Sources */,
 				10ED274A2AB567A200500762 /* Chat.swift in Sources */,
 				1084CDCD2A3D953200CAF78D /* BaseTargetType.swift in Sources */,

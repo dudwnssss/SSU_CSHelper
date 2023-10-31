@@ -14,4 +14,3 @@ struct Previous: Codable {
     let createdAt: String
 }
 
-//typealias Previous = [PreviousElement]

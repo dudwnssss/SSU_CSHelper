@@ -20,12 +20,7 @@ class ChatViewController: BaseViewController {
     
     var chatEnd: (()->Void)?
     
-    
-//    var tempName: String
-    
-    
     var dataSource: UICollectionViewDiffableDataSource<Int, Chat>!
-    var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
 
     override func setProperties() {
         navigationItem.title = navigationTitle
@@ -84,7 +79,7 @@ class ChatViewController: BaseViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "bounds"{
             if let rect = (change?[NSKeyValueChangeKey.newKey] as? NSValue)?.cgRectValue {
-                let margin: CGFloat = 8
+                let margin: CGFloat = 0
                 let xPos = rect.origin.x + margin
                 let yPos = rect.origin.y + 54
                 let width = rect.width - 2 * margin
@@ -100,6 +95,7 @@ class ChatViewController: BaseViewController {
 extension ChatViewController {
     
     private func setSnapshot(){
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
         snapshot.appendSections([0])
         snapshot.appendItems(chatViewModel.chattingList)
         dataSource.apply(snapshot)
@@ -107,7 +103,6 @@ extension ChatViewController {
     
     private func setDataSource(){
         let cellRegistration = UICollectionView.CellRegistration<ChattingCell, Chat> { cell, indexPath, itemIdentifier in
-//            cell.configureCell(chat: itemIdentifier)
         }
         dataSource = UICollectionViewDiffableDataSource(collectionView: chatView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
@@ -123,8 +118,7 @@ extension ChatViewController: UISearchBarDelegate{
         guard let text = searchBar.text else {return}
         let question = Chat(chat: text, isAnswer: false)
         chatViewModel.chattingList.append(question)
-        snapshot.appendItems(chatViewModel.chattingList)
-        dataSource.apply(snapshot)
+        setSnapshot()
         
         chatView.loadingView.isHidden = false
         chatView.loadingView.indicator.startAnimating()
@@ -134,8 +128,7 @@ extension ChatViewController: UISearchBarDelegate{
             chatView.loadingView.isHidden = true
             let answer = Chat(chat: value.answer, isAnswer: true)
             self.chatViewModel.chattingList.append(answer)
-            snapshot.appendItems(self.chatViewModel.chattingList)
-            dataSource.apply(snapshot)
+            setSnapshot()
         }
         
         searchBar.text = ""
