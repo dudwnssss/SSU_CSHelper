@@ -38,7 +38,7 @@ class HistoryCell: UICollectionViewCell{
             nameLabel.text = advice.name
             idLabel.text = advice.studentId
             summaryLabel.text = advice.lastQuestion
-            dateLabel.text = advice.modifiedAt
+            dateLabel.text = formatRelativeDate(from: advice.modifiedAt)
             stateLabel.backgroundColor = advice.status?.backgroundColor ?? .lightGray
             stateLabel.text = advice.status?.text ?? "상태없음"
         }
@@ -107,6 +107,40 @@ extension HistoryCell {
             $0.trailing.equalTo(stateLabel)
             $0.centerY.equalTo(summaryLabel)
             $0.bottom.equalToSuperview().offset(-12)
+        }
+    }
+    
+    func formatRelativeDate(from dateString: String) -> String {
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [.withFullDate, .withTime, .withColonSeparatorInTime]
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+        
+        if let date = dateFormatter.date(from: dateString) {
+            let currentDate = Date()
+            print("current", currentDate)
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date, to: currentDate)
+            if let year = components.year, year > 0 {
+                return "\(year)년 전"
+            } else if let month = components.month, month > 0 {
+                return "\(month)개월 전"
+            } else if let day = components.day, day > 0 {
+                if day == 1 {
+                    return "어제"
+                } else if day <= 7 {
+                    return "\(day)일 전"
+                } else {
+                    return "\(dateFormatter.string(from: date))"
+                }
+            } else if let hour = components.hour, hour > 0 {
+                return "\(hour)시간 전"
+            } else if let minute = components.minute, minute > 0 {
+                return "\(minute)분 전"
+            } else {
+                return "방금"
+            }
+        } else {
+            return "날짜 변환 실패"
         }
     }
     

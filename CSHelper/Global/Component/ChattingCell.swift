@@ -25,7 +25,6 @@ enum ChatType{
 class ChattingCell: UICollectionViewCell{
     
     var chatType: ChatType?
-    
     let textView = UITextView()
     
     override init(frame: CGRect) {
@@ -48,6 +47,7 @@ class ChattingCell: UICollectionViewCell{
             $0.isScrollEnabled = false
             $0.textColor = .white
             $0.layer.cornerRadius = 10
+            $0.isUserInteractionEnabled = false
             $0.backgroundColor = chatType?.bgColor
             $0.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         }
@@ -57,9 +57,6 @@ class ChattingCell: UICollectionViewCell{
         textView.text = chat.chat
         textView.backgroundColor = chat.isAnswer ? .systemCyan : .systemGray5
         textView.textColor = chat.isAnswer ? .white : .black
-        textView.snp.makeConstraints {
-            $0.height.equalTo(textView.text.getEstimatedFrame(with: .boldSystemFont(ofSize: 16)).height+20)
-        }
     }
     
     override func prepareForReuse() {

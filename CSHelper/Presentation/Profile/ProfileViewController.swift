@@ -102,9 +102,10 @@ class ProfileViewController: BaseViewController {
     
     func navigateToAdviceVC(advice: AdviceResponse){
         let vc = AdviceViewController()
-        vc.delegate = self
         vc.hidesBottomBarWhenPushed = true
+        vc.delegate = self
         vc.viewModel.advice = advice
+        vc.navigationItem.backButtonDisplayMode = .minimal
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -153,11 +154,13 @@ extension ProfileViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        do {
-            let adviceId = try viewModel.adviceList.value()[indexPath.item].adviceId
-            viewModel.fetchInfo(id: adviceId)
-        } catch  {
-            print("error")
+        if indexPath.section == 1 {
+            do {
+                let adviceId = try viewModel.adviceList.value()[indexPath.item].adviceId
+                viewModel.fetchInfo(id: adviceId)
+            } catch  {
+                print("error")
+            }
         }
     }
     

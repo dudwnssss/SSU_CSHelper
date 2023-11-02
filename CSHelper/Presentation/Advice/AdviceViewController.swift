@@ -27,15 +27,20 @@ class AdviceViewController: BaseViewController {
     
     func setNavigationBar(){
         navigationItem.title = viewModel.advice!.name + "님과의 상담"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: nil)
+        navigationItem.backButtonDisplayMode = .minimal
+//        navigationItem.leftItemsSupplementBackButton = true
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "상담종료", style: .plain, target: self, action: #selector(endButtonDidTap))
     }
     
     override func bind() {
-        
         viewModel.chatList
-            .bind(with: self) { owner, _ in
+            .bind(with: self) { owner, list in
+                owner.adviceView.loadingView.indicator.stopAnimating()
+                owner.adviceView.loadingView.isHidden = true
                 owner.setSnapshot()
+                owner.adviceView.collectionView.scrollToItem(at: IndexPath(item: list.count - 1, section: 0), at: .bottom, animated: true)
+                owner.adviceView.emptyView.isHidden = !list.isEmpty
             }
             .disposed(by: disposeBag)
         
@@ -98,8 +103,12 @@ extension AdviceViewController {
 extension AdviceViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(#fileID, #function, #line, "- ")
+        adviceView.loadingView.isHidden = false
+        adviceView.loadingView.indicator.startAnimating()
         viewModel.searchButtonTap
             .accept(searchBar.text ?? "")
+        searchBar.text = nil
+        searchBar.endEditing(true)
     }
 }
+

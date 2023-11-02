@@ -38,33 +38,17 @@ final class PreviousCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         if selected {
             contentView.layer.borderWidth = 2
             contentView.layer.borderColor = UIColor.ohsogo_Blue?.cgColor
             contentView.layer.cornerRadius = 4
-
+            
         } else {
             contentView.layer.borderWidth = 1
             contentView.layer.borderColor = UIColor.lightGray.cgColor
             contentView.layer.cornerRadius = 4
-
+            
         }
     }
-    
-    
-    
 }
-
-//#if DEBUG
-//
-//import SwiftUI
-//
-//struct PreviousCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        previousCell(frame: <#CGRect#>).getPreview()
-//            .previewLayout(.fixed(width: 200, height: 100))
-//    }
-//}
-//
-//#endif

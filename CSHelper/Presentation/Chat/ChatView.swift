@@ -11,6 +11,7 @@ class ChatView: BaseView {
     
     let loadingView = LoadingView()
     let searchBar = UISearchBar()
+    let emptyView = EmptyView()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     
     override func setProperties() {
@@ -25,7 +26,6 @@ class ChatView: BaseView {
         loadingView.do {
             $0.isHidden = true
         }
-
     }
     
     private func createLayout() -> UICollectionViewLayout{
@@ -49,7 +49,7 @@ class ChatView: BaseView {
     }
     
     override func setLayouts() {
-        addSubviews(searchBar, collectionView, loadingView)
+        addSubviews(searchBar, collectionView, loadingView, emptyView)
         searchBar.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(self.keyboardLayoutGuide.snp.top)
@@ -60,6 +60,10 @@ class ChatView: BaseView {
         }
         loadingView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-60)
         }
     }
     

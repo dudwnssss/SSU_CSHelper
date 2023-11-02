@@ -19,9 +19,9 @@ final class ProfileCell: UICollectionViewCell {
     
     let nicknameLabel = UILabel().then{
         $0.text = "dudansthanswkd"
-        $0.font = .boldSystemFont(ofSize: 18)
+        $0.font = .boldSystemFont(ofSize: 17)
     }
-    let idLabel = UILabel().then{
+    let roleLabel = UILabel().then{
         $0.text = "@mikeannn"
         $0.font = .systemFont(ofSize: 14)
     }
@@ -31,7 +31,7 @@ final class ProfileCell: UICollectionViewCell {
         $0.font = .systemFont(ofSize: 14)
     }
     let phoneLabel = UILabel()
-    
+    let logoImageView = UIImageView()
     
     let profileEditButton = UIButton().then{
         $0.setImage(UIImage(systemName: "pencil"), for: .normal)
@@ -58,7 +58,7 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     func setLayouts(){
-        contentView.addSubviews( profileImageView, nicknameLabel, idLabel, descriptionLabel, profileEditButton, phoneLabel)
+        contentView.addSubviews( profileImageView, nicknameLabel, roleLabel, descriptionLabel, profileEditButton, phoneLabel, logoImageView)
 
         profileImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
@@ -67,19 +67,19 @@ final class ProfileCell: UICollectionViewCell {
             $0.centerY.equalToSuperview()
         }
         
-        idLabel.snp.makeConstraints {
-            $0.centerY.equalTo(profileImageView)
+        roleLabel.snp.makeConstraints {
+            $0.top.equalTo(nicknameLabel.snp.bottom).offset(10)
             $0.leading.equalTo(profileImageView.snp.trailing).offset(20)
         }
         
         nicknameLabel.snp.makeConstraints {
-            $0.leading.equalTo(idLabel)
-            $0.bottom.equalTo(idLabel.snp.top).offset(-10)
+            $0.top.equalTo(profileImageView).offset(8)
+            $0.leading.equalTo(roleLabel)
             }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(idLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(idLabel)
+            $0.top.equalTo(roleLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(roleLabel)
             $0.trailing.lessThanOrEqualToSuperview().offset(-20)
             $0.bottom.lessThanOrEqualTo(profileImageView.snp.bottom)
         }
@@ -91,26 +91,35 @@ final class ProfileCell: UICollectionViewCell {
         }
         
         phoneLabel.snp.makeConstraints {
-            $0.leading.equalTo(idLabel)
+            $0.leading.equalTo(roleLabel)
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+        }
+        
+        logoImageView.snp.makeConstraints {
+            $0.bottom.trailing.equalToSuperview()
         }
         
         
     }
     
     func setProperties(){
-        contentView.cornerRadius = 16
+        contentView.cornerRadius = 12
         contentView.backgroundColor = .white
         phoneLabel.do {
             $0.text = "TEL | 02-820-0249"
             $0.font = .systemFont(ofSize: 14)
         }
+        logoImageView.do {
+            $0.image = Image.soongsil
+            $0.contentMode = .scaleAspectFill
+        }
+
 
     }
     
     func configureCell(profile: Profile){
         self.nicknameLabel.text = profile.name
-        self.idLabel.text = profile.role
+        self.roleLabel.text = profile.role
         self.descriptionLabel.text = profile.department
     }
 }

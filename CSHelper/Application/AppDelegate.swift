@@ -13,8 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
+            appearance.configureWithTransparentBackground()
             appearance.backgroundColor = .systemCyan.withAlphaComponent(0.8)
+            let backButtonAppearance = UIBarButtonItemAppearance()
+            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear, .font: UIFont.systemFont(ofSize: 0)]
+            appearance.setBackIndicatorImage(Image.back, transitionMaskImage: Image.back)
+            appearance.backButtonAppearance = backButtonAppearance
             appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             appearance.backgroundEffect = UIBlurEffect(style: .light)
             UINavigationBar.appearance().tintColor = .white
