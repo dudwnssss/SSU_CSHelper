@@ -20,7 +20,6 @@ class ChatView: BaseView {
 
         collectionView.do {
             $0.keyboardDismissMode = .onDrag
-            $0.showsVerticalScrollIndicator = false
         }
         
         loadingView.do {

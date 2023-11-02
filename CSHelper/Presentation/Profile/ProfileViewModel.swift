@@ -13,9 +13,89 @@ import Moya
 class ProfileViewModel{
     
     var profile: [Profile] = [Profile(name: "윤석민", role: "담당업무 | 학생 응대", department: "소속 | 소프트웨어학부 학부사무실")]
-    var historyList: [History] = [History(name: "김민근", identifier: "12341234", summary: "이번학기 ICT인턴쉽을 진행중입니다. 6학점이 남은 상황인데 졸업을 하려면", date: "3시간 전", isEnd: true),
-                                  History(name: "송현섭", identifier: "23452345", summary: "숭실 사이버대 강의를 들어도 학점인정이 되는 지 궁금합니다.", date: "어제", isEnd: false),
-                                  History(name: "임영준", identifier: "3432234", summary: "이번학기를 휴학하고 다음학기에 복학예정입니다. 졸업시기는 어떻게 되는 건가요?", date: "9월 16일", isEnd: false),
-                                  History(name: "박동진", identifier: "123112312", summary: "4학년인데 채플을 다 듣지 못했습니다. 졸업학기에 채플신청을 하려면 어떻게 해야하나", date: "9월 15일", isEnd: true)]
+    
+    var name = BehaviorRelay<String>(value: "")
+    var studentId = BehaviorRelay<String>(value: "")
+    
+    var adviceList = BehaviorSubject<[ChannelResponse]>(value: [])
+    var advice = PublishSubject<AdviceResponse>()
+    var existAdvice = PublishSubject<AdviceResponse>()
+    var deleteAdvice = PublishSubject<Void>()
+    
+    init(){
+        fetchAdvices()
+    }
+}
+
+extension ProfileViewModel {
+    
+    func fetchAdvices(){
+        let provider = MoyaProvider<ChannelService>(plugins: [NetworkLogPlugin()])
+        provider.request(.history(channelId: 1)){ result in
+            switch result {
+            case .success(let response):
+                do {
+                    let channelResponses = try response.map([ChannelResponse].self)
+                    self.adviceList.onNext(channelResponses)
+                } catch {
+                    self.adviceList.onError(error)
+                }
+            case .failure(let error):
+                self.adviceList.onError(error)
+            }
+        }
+    }
+    
+    func createAdvice(){
+        let provider = MoyaProvider<AdviceSerice>(plugins: [NetworkLogPlugin()])
+        provider.request(.create(parameters: CreateRequest(channelId: 1, name: name.value, studentId: studentId.value))) { result in
+            switch result {
+            case .success(let success):
+                do  {
+                    let response = try success.map(AdviceResponse.self)
+                    self.advice.onNext(response)
+                } catch {
+                    self.advice.onError(error)
+                }
+            case .failure(let error):
+                self.advice.onError(error)
+            }
+        }
+    }
+    
+    func fetchInfo(id: Int) {
+        let provider = MoyaProvider<AdviceSerice>(plugins: [NetworkLogPlugin()])
+        provider.request(.info(adviceId: id)){ result in
+            switch result {
+            case .success(let response):
+                do {
+                    let adviceResponse = try response.map(AdviceResponse.self)
+                    self.existAdvice.onNext(adviceResponse)
+                } catch {
+                    self.existAdvice.onError(error)
+                }
+            case .failure(let error):
+                self.existAdvice.onError(error)
+            }
+        }
+    }
+    
+    func deleteAdvice(idx: Int) {
+        do {
+            let adviceId = try adviceList.value()[idx].adviceId
+            let provider = MoyaProvider<AdviceSerice>(plugins: [NetworkLogPlugin()])
+
+            provider.request(.delete(adviceId: adviceId)){ [weak self] result in
+                switch result {
+                case .success(_):
+                    self?.fetchAdvices()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }catch {
+            print("error")
+        }
+    }
     
 }

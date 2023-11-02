@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct AdviceResponse: Codable, Hashable {
+struct AdviceResponse: Decodable, Hashable {
     let adviceId: Int
     let name: String
-    let memo: String
+    let memo: String?
     let studentId: String
-    let status: Status
+    let status: Status?
     let modifiedAt: String
 }

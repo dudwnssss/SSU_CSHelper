@@ -14,9 +14,9 @@ enum Status: String, Codable {
     var backgroundColor: UIColor {
         switch self {
         case .inProgress:
-            return .green
-        case .completed:
             return .lightGray
+        case .completed:
+            return .systemGreen
         }
     }
     

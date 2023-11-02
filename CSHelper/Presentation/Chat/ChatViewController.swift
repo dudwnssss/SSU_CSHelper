@@ -28,14 +28,8 @@ class ChatViewController: BaseViewController {
         view.keyboardLayoutGuide.followsUndockedKeyboard = true
         setDataSource()
         setSnapshot()
-        setNavigationBar()
     }
-    
-    func setNavigationBar(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(memoButtonDidTap))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "상담종료", style: .plain, target: self, action: #selector(endButtonDidTap))
-    }
-    
+        
     @objc func endButtonDidTap(){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let logout = UIAlertAction(title: "상담 완료", style: .default) { _ in
@@ -113,7 +107,7 @@ extension ChatViewController {
 }
 
 
-extension ChatViewController: UISearchBarDelegate{
+extension ChatViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {return}
         let question = Chat(chat: text, isAnswer: false)

@@ -19,6 +19,7 @@ struct StatusRequest: Encodable {
 }
 
 struct CreateRequest: Encodable {
+    let channelId: Int
     let name: String
     let studentId: String
 }

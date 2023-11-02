@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 class SignupViewController: BaseViewController{
     
@@ -105,15 +106,3 @@ class SignupViewController: BaseViewController{
     }
 }
 
-#if DEBUG
-import SwiftUI
-import Moya
-
-struct SignupViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewController = SignupViewController()
-        return viewController.getPreview()
-    }
-}
-
-#endif

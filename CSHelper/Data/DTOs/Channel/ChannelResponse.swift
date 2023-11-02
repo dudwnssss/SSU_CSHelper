@@ -8,11 +8,11 @@
 import Foundation
 
 // MARK: - Empty
-struct ChannelResponse: Codable, Hashable {
+struct ChannelResponse: Decodable, Hashable {
     let adviceId: Int
     let name: String
     let studentId: String
-    let status: Status
+    let status: Status?
     let modifiedAt: String
     let lastQuestion: String
 }

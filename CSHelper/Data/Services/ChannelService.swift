@@ -14,13 +14,6 @@ enum ChannelService{
 
 extension ChannelService: BaseTargetType {
     
-    var headers: [String: String]? {
-        switch self {
-        default:
-            return nil
-        }
-    }
-    
     var path: String {
         switch self {
         case .history(let channelId):

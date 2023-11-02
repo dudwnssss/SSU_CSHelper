@@ -12,16 +12,11 @@ enum AdviceSerice {
     case fetch(adviceId: Int)
     case status(parameters: StatusRequest)
     case question(parameters: QuestionRequest)
+    case info(adviceId: Int)
+    case delete(adviceId: Int)
 }
 
 extension AdviceSerice: BaseTargetType {
-    
-    var headers: [String: String]? {
-        switch self {
-        default:
-            return nil
-        }
-    }
     
     var path: String {
         switch self {
@@ -33,19 +28,27 @@ extension AdviceSerice: BaseTargetType {
             return "/api/advice/\(adviceId)/question"
         case .question:
             return "/api/advice/question"
+        case .info(let adviceId):
+            return "/api/advice/\(adviceId)"
+        case .delete(let adviceId):
+            return "/api/advice/\(adviceId)"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .status:
-            return .post
+            return .put
         case .fetch:
             return .get
         case .question:
             return .post
         case .create:
             return .post
+        case .info:
+            return .get
+        case .delete:
+            return .delete
         }
     }
     

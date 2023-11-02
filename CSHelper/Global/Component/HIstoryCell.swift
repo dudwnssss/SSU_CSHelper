@@ -23,6 +23,33 @@ class HistoryCell: UICollectionViewCell{
         setLayouts()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = nil
+        idLabel.text = nil
+        summaryLabel.text = nil
+        dateLabel.text = nil
+        stateLabel.backgroundColor = nil
+        stateLabel.text = nil
+    }
+
+    
+    func configureCell(advice: ChannelResponse){
+            nameLabel.text = advice.name
+            idLabel.text = advice.studentId
+            summaryLabel.text = advice.lastQuestion
+            dateLabel.text = advice.modifiedAt
+            stateLabel.backgroundColor = advice.status?.backgroundColor ?? .lightGray
+            stateLabel.text = advice.status?.text ?? "상태없음"
+        }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension HistoryCell {
     
     func setProperties(){
         contentView.cornerRadius = 12
@@ -64,8 +91,8 @@ class HistoryCell: UICollectionViewCell{
             $0.trailing.equalToSuperview().offset(-20)
         }
         nameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(12)
             $0.leading.equalToSuperview().offset(10)
-            $0.centerY.equalToSuperview().offset(-10)
         }
         idLabel.snp.makeConstraints {
             $0.leading.equalTo(nameLabel.snp.trailing).offset(5)
@@ -79,22 +106,8 @@ class HistoryCell: UICollectionViewCell{
         dateLabel.snp.makeConstraints {
             $0.trailing.equalTo(stateLabel)
             $0.centerY.equalTo(summaryLabel)
-            $0.width.equalTo(60)
+            $0.bottom.equalToSuperview().offset(-12)
         }
     }
     
-    func configureCell(history: History){
-        nameLabel.text = history.name
-        idLabel.text = history.identifier
-        summaryLabel.text = history.summary
-        dateLabel.text = history.date
-        stateLabel.backgroundColor = history.isEnd ? .lightGray : .systemGreen
-        stateLabel.text = history.isEnd ? "상담완료" : "상담진행중"
-    }
-    
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

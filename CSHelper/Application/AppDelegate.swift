@@ -16,11 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .systemCyan.withAlphaComponent(0.8)
             appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.backgroundEffect = UIBlurEffect(style: .light)
             UINavigationBar.appearance().tintColor = .white
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
-        sleep(2)
+        UIScrollView.appearance().showsVerticalScrollIndicator = false
         return true
     }
 
