@@ -70,6 +70,7 @@ class ProfileView: BaseView{
             $0.backgroundColor = .systemGray6
             $0.register(cell: ProfileCell.self)
             $0.register(cell: HistoryCell.self)
+            $0.alwaysBounceVertical = false
             $0.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileHeader.reuseIdentifier)
         }
         newAdivceAlert.do {

@@ -54,6 +54,7 @@ extension ProfileViewModel {
                 do  {
                     let response = try success.map(AdviceResponse.self)
                     self.advice.onNext(response)
+                    self.fetchAdvices()
                 } catch {
                     self.advice.onError(error)
                 }

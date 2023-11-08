@@ -55,7 +55,7 @@ class ChatView: BaseView {
             $0.bottom.equalTo(self.keyboardLayoutGuide.snp.top)
         }
         collectionView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            $0.top.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(searchBar.snp.top)
         }
         loadingView.snp.makeConstraints {
@@ -66,5 +66,6 @@ class ChatView: BaseView {
             $0.centerY.equalToSuperview().offset(-60)
         }
     }
+
     
 }

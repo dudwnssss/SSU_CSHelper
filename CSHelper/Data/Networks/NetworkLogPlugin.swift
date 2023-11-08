@@ -2,7 +2,7 @@
 //  NetworkLogPlugin.swift
 //  ColorMemoryBook
 //
-//  Created by 김윤서 on 2023/06/05.
+//  Created by 임영준 on 2023/06/05.
 //
 
 import Foundation

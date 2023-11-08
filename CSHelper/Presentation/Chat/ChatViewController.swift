@@ -26,6 +26,8 @@ class ChatViewController: BaseViewController {
         view.keyboardLayoutGuide.followsUndockedKeyboard = true
         setDataSource()
         setSnapshot()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+
     }
     
     override func bind() {
@@ -59,6 +61,10 @@ extension ChatViewController {
             return cell
         })
     }
+    
+    @objc func handleKeyboardWillShow(notification: Notification) {
+        chatView.collectionView.scrollToItem(at: IndexPath(row: viewModel.chatList.value.count - 1, section: 0), at: .top, animated: false)
+        }
 }
 
 

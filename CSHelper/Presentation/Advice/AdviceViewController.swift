@@ -28,8 +28,6 @@ class AdviceViewController: BaseViewController {
     func setNavigationBar(){
         navigationItem.title = viewModel.advice!.name + "님과의 상담"
         navigationItem.backButtonDisplayMode = .minimal
-//        navigationItem.leftItemsSupplementBackButton = true
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "상담종료", style: .plain, target: self, action: #selector(endButtonDidTap))
     }
     
@@ -39,7 +37,7 @@ class AdviceViewController: BaseViewController {
                 owner.adviceView.loadingView.indicator.stopAnimating()
                 owner.adviceView.loadingView.isHidden = true
                 owner.setSnapshot()
-                owner.adviceView.collectionView.scrollToItem(at: IndexPath(item: list.count - 1, section: 0), at: .bottom, animated: true)
+                owner.adviceView.collectionView.scrollToItem(at: IndexPath(item: list.count - 1, section: 0), at: .bottom, animated: false)
                 owner.adviceView.emptyView.isHidden = !list.isEmpty
             }
             .disposed(by: disposeBag)
@@ -57,6 +55,8 @@ class AdviceViewController: BaseViewController {
         setNavigationBar()
         setDataSource()
         setSnapshot()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+
     }
     
     @objc func endButtonDidTap(){
@@ -76,7 +76,6 @@ class AdviceViewController: BaseViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
-    
 }
 
 extension AdviceViewController {
@@ -97,6 +96,10 @@ extension AdviceViewController {
             return cell
         })
     }
+    
+    @objc func handleKeyboardWillShow(notification: Notification) {
+        adviceView.collectionView.scrollToItem(at: IndexPath(row: viewModel.chatList.value.count - 1, section: 0), at: .top, animated: false)
+        }
     
 }
 

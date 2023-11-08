@@ -83,7 +83,10 @@ class ProfileViewController: BaseViewController {
     
     @objc func settingButtonDidTap(){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let logout = UIAlertAction(title: "로그아웃", style: .default)
+        let logout = UIAlertAction(title: "로그아웃", style: .default) { _ in
+            UserDefaultHandler.shared.removeAll()
+            RootSwitcher.update(.login)
+        }
         let quit = UIAlertAction(title: "탈퇴하기", style: .default)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         alert.addAction(logout)
